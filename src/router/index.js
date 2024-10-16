@@ -1,25 +1,61 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import { createRouter, createWebHistory } from 'vue-router';
+import HomeSuperAdmin from '@/views/VistasSuperAdministrador/HomeSuperAdmin.vue';
+import HomeAdminView from '@/views/vistasAdministrador/HomeAdminView.vue';
+import HomeUsuario from '@/views/vistasUsuario/HomeUsuario.vue';
+import PerfilRestaurante from '@/views/vistasAdministrador/PerfilRestaurante.vue';
+import CatalogoRestaurante from '@/views/vistasAdministrador/CatalogoRestaurante.vue';
 
 const routes = [
   {
-    path: '/',
-    name: 'home',
-    component: HomeView
+    /* Esta ruta nos dirige al home de Super Administrador */
+    path: '/superadmin',
+    name: 'superadmin',
+    component: HomeSuperAdmin,
+    meta: { role: 'superadmin' }
+  },
+
+
+
+
+  {
+    /* Esta ruta nos dirige al home de administrador */
+    path: '/homeadmin',
+    name: 'homeadmin',
+    component: HomeAdminView,
+    meta: { role: 'admin' }
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    /* Esta ruta nos dirige al perfil del resturante */
+    path: '/perfil',
+    name: 'perfil',
+    component: PerfilRestaurante,
+    meta: {role: 'admin'}
+  },
+  {
+    path: '/menu',
+    name: 'menu',
+    component: CatalogoRestaurante,
+    meta: {role: 'admin'}
+  },
+
+
+
+
+
+
+
+  {
+    /* Esta ruta nos dirige al home de usuario */
+    path: '/homeuser',
+    name: 'homeuser',
+    component: HomeUsuario,
+    meta: { role: 'user' }
   }
-]
+];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
-})
+});
 
-export default router
+export default router;
