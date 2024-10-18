@@ -1,30 +1,21 @@
 import { createStore } from 'vuex';
+import menu from './modules/menu';
 
 export default createStore({
   state: {
-    //
     usuarios: [] // Array para almacenar los usuarios
-    //
   },
   getters: {
-    //
     getUsuarios(state) {
       return state.usuarios; // Getter para acceder a los usuarios
     }
-    //
   },
   mutations: {
-
-    //
     AGREGAR_USUARIO(state, usuario) {
       state.usuarios.push(usuario); // Agrega el nuevo usuario al array
     }
-  //
   },
   actions: {
-
-
-    //
     agregarUsuario({ commit }, usuario) {
       return new Promise((resolve,) => {
         // Simular una llamada a una API
@@ -36,8 +27,8 @@ export default createStore({
         }, 1000); // Simulación de un retraso de 1 segundo
       });
     }
+  },
+  modules: {
+    menu
   }
-  //
-
-
 });
