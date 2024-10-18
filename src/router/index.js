@@ -4,6 +4,7 @@ import HomeAdminView from '@/views/vistasAdministrador/HomeAdminView.vue';
 import HomeUsuario from '@/views/vistasUsuario/HomeUsuario.vue';
 import PerfilRestaurante from '@/views/vistasAdministrador/PerfilRestaurante.vue';
 import CatalogoRestaurante from '@/views/vistasAdministrador/CatalogoRestaurante.vue';
+import MostrarMenuView from '@/views/vistasAdministrador/MostrarMenuView.vue';
 
 const routes = [
   {
@@ -13,10 +14,6 @@ const routes = [
     component: HomeSuperAdmin,
     meta: { role: 'superadmin' }
   },
-
-
-
-
   {
     /* Esta ruta nos dirige al home de administrador */
     path: '/homeadmin',
@@ -37,12 +34,12 @@ const routes = [
     component: CatalogoRestaurante,
     meta: {role: 'admin'}
   },
-
-
-
-
-
-
+  {
+    path: '/muestra',
+    name: 'muestra',
+    component: MostrarMenuView,
+    meta: {role: 'admin'}
+  },
 
   {
     /* Esta ruta nos dirige al home de usuario */
