@@ -1,188 +1,94 @@
 <template>
-    <div class="background-image">
-      <v-card
-        class="mx-auto my-8 transparent-card"
-        elevation="16"
-        max-width="800"
-      >
-        <v-card-item>
-          <v-card-title>
-            Registro de Restaurante
-          </v-card-title>
-        </v-card-item>
-
-        <v-card-text>
-            <v-row>
-                <v-col>
-                     <!-- Nombre del restaurante -->
-                        <v-text-field
-                        label="Nombre"
-                        color="brown"
-                        type="text"
-                        counter
-                        clearable
-                        maxLength="100"
-                        prepend-inner-icon="mdi-account"
-                    ></v-text-field>
-                </v-col>
-                <v-col>
-                    <!-- Dirección -->
-                    <v-text-field
-                        label="Dirección"
-                        color="brown"
-                        type="text"
-                        counter
-                        clearable
-                        maxLength="255"
-                        prepend-inner-icon="mdi-map"
-                    ></v-text-field>
-                </v-col>
-            </v-row>
-
-            <v-row>
-                <v-col>
-                    <!-- Ciudad -->
-                    <v-text-field
-                        label="Ciudad"
-                        color="brown"
-                        type="text"
-                        counter
-                        clearable
-                        maxLength="100"
-                        prepend-inner-icon="mdi-city"
-                    ></v-text-field>
-                </v-col>
-                <v-col>
-                    <!-- Tipo de cocina -->
-                    <v-text-field
-                        label="Tipo de cocina"
-                        color="brown"
-                        type="text"
-                        counter
-                        clearable
-                        maxLength="50"
-                        prepend-inner-icon="mdi-silverware"
-                    ></v-text-field>
-                </v-col>
-            </v-row>
-
-            <v-row>
-                <v-col>
-                    <!-- Rango de precios -->
-                    <v-text-field
-                        label="Rango de precios"
-                        color="brown"
-                        type="text"
-                        counter
-                        clearable
-                        maxLength="20"
-                        prepend-inner-icon="mdi-cash"
-                    ></v-text-field>
-                </v-col>
-                <v-col>
-                    <!-- Calificación promedio -->
-                    <v-text-field
-                        label="Calificación promedio"
-                        color="brown"
-                        type="number"
-                        clearable
-                        max="10.00"
-                        step="0.01"
-                        prepend-inner-icon="mdi-star"
-                    ></v-text-field>
-                </v-col>
-            </v-row>
-
-            <v-row>
-                <v-col>
-                    <!-- Capacidad -->
-                    <v-text-field
-                        label="Capacidad"
-                        color="brown"
-                        type="number"
-                        clearable
-                        prepend-inner-icon="mdi-chair-school"
-                    ></v-text-field>
-                </v-col>
-                <v-col>
-                    <!-- Horario apertura -->
-                    <v-text-field
-                        label="Horario apertura"
-                        color="brown"
-                        type="time"
-                        clearable
-                        prepend-inner-icon="mdi-clock"
-                    ></v-text-field>
-                </v-col>
-            </v-row>
-
-            <v-row>
-                <v-col>
-                    <!-- Horario cierre -->
-                    <v-text-field
-                        label="Horario cierre"
-                        color="brown"
-                        type="time"
-                        clearable
-                        prepend-inner-icon="mdi-clock"
-                    ></v-text-field>
-                </v-col>
-                <v-col>
-                    <!-- Email -->
-                    <v-text-field
-                        label="Email"
-                        color="brown"
-                        type="email"
-                        counter
-                        clearable
-                        maxLength="100"
-                        prepend-inner-icon="mdi-email"
-                    ></v-text-field>
-                </v-col>
-            </v-row>
-
-            <v-row>
-                <v-col>
-                    <!-- Teléfono -->
-                    <v-text-field
-                        label="Teléfono"
-                        color="brown"
-                        type="text"
-                        counter
-                        clearable
-                        maxLength="20"
-                        prepend-inner-icon="mdi-phone"
-                    ></v-text-field>
-                </v-col>
-                <v-col>
-                    <!-- Imagen -->
-                    <v-text-field
-                        label="Imagen"
-                        color="brown"
-                        type="file"
-                        counter
-                        clearable
-                        maxLength="255"
-                        prepend-inner-icon="mdi-image"
-                    ></v-text-field>
-                </v-col>
-            </v-row>
-        </v-card-text>
-
-        <v-row justify="center">
-          <v-col class="text-center">
-            <v-btn color="brown" class="mx-8">Guardar</v-btn>
-            <v-btn color="orange" class="mx-8">Cancelar</v-btn>
-            <br>
-            <br>
-          </v-col>
-        </v-row>
+    <v-container>
+      <v-card class="mx-auto pa-6" max-width="800">
+        <v-card-title class="text-h4 mb-4">
+          Digita los Datos de tu Restaurante
+        </v-card-title>
+        <v-form>
+          <v-row>
+            <!-- Columna Izquierda -->
+            <v-col cols="12" md="6">
+              <v-text-field v-model="restaurantes.nombre" label="Nombre del Restaurante" outlined required></v-text-field>
+              <v-text-field v-model="restaurantes.direccion" label="Dirección" outlined required></v-text-field>
+              <v-text-field v-model="restaurantes.ciudad" label="Ciudad" outlined required></v-text-field>
+              <v-text-field v-model="restaurantes.tipo_cocina" label="Tipo de Cocina" outlined></v-text-field>
+              <v-text-field v-model="restaurantes.calificacion_promedio" label="Calificación Promedio" type="number" outlined></v-text-field>
+            </v-col>
+  
+            <!-- Columna Derecha -->
+            <v-col cols="12" md="6">
+              <v-text-field v-model="restaurantes.rango_precios" label="Rango de Precios" outlined></v-text-field>
+              <v-text-field v-model="restaurantes.capacidad" label="Capacidad" type="number" outlined required></v-text-field>
+              <v-text-field v-model="restaurantes.horario_apertura" label="Horario de Apertura" type="time" outlined required></v-text-field>
+              <v-text-field v-model="restaurantes.horario_cierre" label="Horario de Cierre" type="time" outlined required></v-text-field>
+              <v-text-field v-model="restaurantes.email" label="Email" type="email" outlined></v-text-field>
+              <v-text-field v-model="restaurantes.telefono" label="Teléfono" outlined></v-text-field>
+              <v-text-field v-model="restaurantes.imagen" label="URL imagen" type="text" outlined></v-text-field>
+            </v-col>
+          </v-row>
+  
+          <!-- Select para Administrador -->
+          <v-select
+            v-model="restaurantes.admin_id"
+            :items="administracion_restaurante"
+            item-title="nombre_usuario"
+            item-value="admin_id"
+            label="Selecciona Administrador"
+            outlined
+            required
+          ></v-select>
+  
+          <v-btn color="primary" @click="agregarRestaurante" class="mt-4">Agregar Restaurante</v-btn>
+        </v-form>
+        <v-snackbar v-model="alertaEstado" color="blue-accent-1" timeout="2000">{{ mensaje }}</v-snackbar>
       </v-card>
-    </div>
-</template>
-
-<script>
-    export default {
-        name: 'PerfilRestaurante'
-    }
-</script>
+    </v-container>
+  </template>
+  
+  <script>
+  import axios from 'axios';
+  export default {
+    name: 'PerfilRestaurante',
+    data() {
+      return {
+        administracion_restaurante: [],
+        restaurantes: {},
+        alertaEstado: false,
+        mensaje: '',
+      };
+    },
+    methods: {
+      obtenerAdministrador() {
+        axios
+          .get('http://127.0.0.1:8000/api/administrador/select')
+          .then((response) => {
+            console.log('Respuesta de la API:', response.data);
+            if (response.data.code === 200) {
+              this.administracion_restaurante = response.data.data;
+              console.log('Administradores cargados:', this.administracion_restaurante);
+            }
+          })
+          .catch((error) => console.log('Ha ocurrido un error: ' + error));
+      },
+      agregarRestaurante() {
+        axios.post('http://127.0.0.1:8000/api/restaurantes/insertar', this.restaurantes)
+          .then(response => {
+            if (response.data.code === 200) {
+              this.alertaEstado = true;
+              this.mensaje = response.data.data;
+              this.restaurantes = {};
+            }
+          })
+          .catch(error => {
+            console.log('Ha ocurrido un error: ' + error);
+            this.alertaEstado = true;
+            this.mensaje = 'Error al agregar el restaurante';
+          });
+      },
+    },
+    created() {
+      this.obtenerAdministrador();
+    },
+  }
+  </script>
+  

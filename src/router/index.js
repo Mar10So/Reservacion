@@ -4,6 +4,7 @@ import HomeAdminView from '@/views/vistasAdministrador/HomeAdminView.vue';
 import HomeUsuario from '@/views/vistasUsuario/HomeUsuario.vue';
 import PerfilRestaurante from '@/views/vistasAdministrador/PerfilRestaurante.vue';
 import CatalogoRestaurante from '@/views/vistasAdministrador/CatalogoRestaurante.vue';
+import MenuRestaurante from '@/views/vistasAdministrador/MenuRestaurante.vue';
 
 const routes = [
   {
@@ -35,6 +36,12 @@ const routes = [
     path: '/menu',
     name: 'menu',
     component: CatalogoRestaurante,
+    meta: {role: 'admin'}
+  },
+  {
+    path: '/producto',
+    name: 'producto',
+    component: MenuRestaurante,
     meta: {role: 'admin'}
   },
 

@@ -9,7 +9,10 @@
           <v-list-item prepend-icon="mdi-cog" title="Registro"></v-list-item>
         </router-link>
         <router-link to="/menu">
-          <v-list-item prepend-icon="mdi-food" title="Menu"></v-list-item>
+          <v-list-item prepend-icon="mdi-food" title="Crear Productos"></v-list-item>
+        </router-link>
+        <router-link to="/producto">
+          <v-list-item prepend-icon="mdi-eye" title="Productos"></v-list-item>
         </router-link>
         <router-link to="/roles">
           <v-list-item prepend-icon="mdi-shield" title="Roles"></v-list-item>
