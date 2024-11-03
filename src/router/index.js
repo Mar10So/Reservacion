@@ -5,6 +5,10 @@ import HomeUsuario from '@/views/vistasUsuario/HomeUsuario.vue';
 import PerfilRestaurante from '@/views/vistasAdministrador/PerfilRestaurante.vue';
 import CatalogoRestaurante from '@/views/vistasAdministrador/CatalogoRestaurante.vue';
 import MenuRestaurante from '@/views/vistasAdministrador/MenuRestaurante.vue';
+import CatalogosView from '@/views/vistasUsuario/CatalogosView.vue';
+import AdministradoresView from '@/views/VistasSuperAdministrador/AdministradoresView.vue';
+import RestaurantesView from '@/views/VistasSuperAdministrador/RestaurantesView.vue';
+import ReservasUserView from '@/views/vistasUsuario/ReservasUserView.vue';
 
 const routes = [
   {
@@ -14,10 +18,25 @@ const routes = [
     component: HomeSuperAdmin,
     meta: { role: 'superadmin' }
   },
+  {
+    /* Esta ruta nos dirige a los restaurantes de Super Administrador */
+    path: '/restaurantes',
+    name: 'restaurantes',
+    component: RestaurantesView,
+    meta: { role: 'superadmin' }
+  },
+  {
+    /* Esta ruta nos dirige a los administradores Super Administrador */
+    path: '/administradores',
+    name: 'administradores',
+    component: AdministradoresView,
+    meta: { role: 'superadmin' }
+  },
 
 
 
 
+  
   {
     /* Esta ruta nos dirige al home de administrador */
     path: '/homeadmin',
@@ -57,7 +76,26 @@ const routes = [
     name: 'homeuser',
     component: HomeUsuario,
     meta: { role: 'user' }
-  }
+  },
+  {
+    /* Esta ruta nos dirige a crear Reservas */
+    path: '/reservar',
+    name: 'reservar',
+    component: ReservasUserView,
+    meta: { role: 'user' }
+  },
+  {
+    /* Esta ruta nos dirige al Menu del restaurante */
+    path: '/catalogo',
+    name: 'catalogo',
+    component: CatalogosView,
+    meta: { role: 'user' }
+  },
+
+
+
+
+
 ];
 
 const router = createRouter({

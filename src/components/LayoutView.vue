@@ -24,7 +24,7 @@ export default {
   props: {
     userRole: {
       type: String,
-      default: 'admin' // Definimos un rol por defecto//
+      default: 'user' // Definimos un rol por defecto//
     }
   },
   computed: {

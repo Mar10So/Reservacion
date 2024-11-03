@@ -1,5 +1,7 @@
 <template>
   <v-container>
+
+    <!-- Informacion del restaurantes -->
       <v-img
         src="../../assets/login.jpg"
         height="200"
@@ -61,6 +63,8 @@
       </v-card-text>
     <!-- Tabla de Comentarios -->
     <br>
+
+    <!-- ParaComentarios  -->
     <v-card>
       <v-table height="300px">
         <thead>

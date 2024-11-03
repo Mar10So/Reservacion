@@ -14,8 +14,8 @@
         <router-link to="/producto">
           <v-list-item prepend-icon="mdi-eye" title="Productos"></v-list-item>
         </router-link>
-        <router-link to="/roles">
-          <v-list-item prepend-icon="mdi-shield" title="Roles"></v-list-item>
+        <router-link to="/reserva">
+          <v-list-item prepend-icon="mdi-shield" title="Reservas"></v-list-item>
         </router-link>
       </v-list>
 

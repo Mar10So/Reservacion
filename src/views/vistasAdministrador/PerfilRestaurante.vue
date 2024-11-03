@@ -12,7 +12,8 @@
               <v-text-field v-model="restaurantes.direccion" label="Dirección" outlined required></v-text-field>
               <v-text-field v-model="restaurantes.ciudad" label="Ciudad" outlined required></v-text-field>
               <v-text-field v-model="restaurantes.tipo_cocina" label="Tipo de Cocina" outlined></v-text-field>
-              <v-text-field v-model="restaurantes.calificacion_promedio" label="Calificación Promedio" type="number" outlined></v-text-field>
+              <v-text-field v-model="restaurantes.telefono" label="Teléfono" outlined></v-text-field>
+              <v-text-field v-model="restaurantes.imagen" label="URL imagen" type="text" outlined></v-text-field>
             </v-col>
   
             <!-- Columna Derecha -->
@@ -22,22 +23,18 @@
               <v-text-field v-model="restaurantes.horario_apertura" label="Horario de Apertura" type="time" outlined required></v-text-field>
               <v-text-field v-model="restaurantes.horario_cierre" label="Horario de Cierre" type="time" outlined required></v-text-field>
               <v-text-field v-model="restaurantes.email" label="Email" type="email" outlined></v-text-field>
-              <v-text-field v-model="restaurantes.telefono" label="Teléfono" outlined></v-text-field>
-              <v-text-field v-model="restaurantes.imagen" label="URL imagen" type="text" outlined></v-text-field>
+              <v-select
+                v-model="restaurantes.admin_id"
+                :items="administracion_restaurante"
+                item-title="nombre_usuario"
+                item-value="admin_id"
+                label="Selecciona Administrador"
+                outlined
+                required
+              ></v-select>
             </v-col>
           </v-row>
-  
-          <!-- Select para Administrador -->
-          <v-select
-            v-model="restaurantes.admin_id"
-            :items="administracion_restaurante"
-            item-title="nombre_usuario"
-            item-value="admin_id"
-            label="Selecciona Administrador"
-            outlined
-            required
-          ></v-select>
-  
+          
           <v-btn color="primary" @click="agregarRestaurante" class="mt-4">Agregar Restaurante</v-btn>
         </v-form>
         <v-snackbar v-model="alertaEstado" color="blue-accent-1" timeout="2000">{{ mensaje }}</v-snackbar>
@@ -70,6 +67,8 @@
           })
           .catch((error) => console.log('Ha ocurrido un error: ' + error));
       },
+
+
       agregarRestaurante() {
         axios.post('http://127.0.0.1:8000/api/restaurantes/insertar', this.restaurantes)
           .then(response => {
@@ -86,6 +85,7 @@
           });
       },
     },
+    
     created() {
       this.obtenerAdministrador();
     },

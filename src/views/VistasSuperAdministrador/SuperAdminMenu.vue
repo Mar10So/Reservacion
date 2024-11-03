@@ -5,14 +5,11 @@
         <router-link to="/superadmin">
           <v-list-item prepend-icon="mdi-home" title="Home"></v-list-item>
         </router-link>
-        <router-link to="/usuarios">
-          <v-list-item prepend-icon="mdi-account-box" title="Usuarios"></v-list-item>
+        <router-link to="/administradores">
+          <v-list-item prepend-icon="mdi-account-box" title="Administradores"></v-list-item>
         </router-link>
         <router-link to="/restaurantes">
           <v-list-item prepend-icon="mdi-food" title="Restaurantes"></v-list-item>
-        </router-link>
-        <router-link to="/roles">
-          <v-list-item prepend-icon="mdi-shield" title="Roles"></v-list-item>
         </router-link>
       </v-list>
 
