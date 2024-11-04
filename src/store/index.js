@@ -1,43 +1,53 @@
-import { createStore } from 'vuex';
+import { createStore } from 'vuex'
 
 export default createStore({
-  state: {
-    //
-    usuarios: [] // Array para almacenar los usuarios
-    //
+  state: {   
+    usuarios: null,
+    rol: null,
+    token: null,
   },
   getters: {
-    //
-    getUsuarios(state) {
-      return state.usuarios; // Getter para acceder a los usuarios
-    }
-    //
+    getUsuario(state) {
+      return state.usuarios;
+    },
+    getRol(state) {
+      return state.rol;
+    },
+    getToken(state) {
+      return state.token;
+    },
   },
   mutations: {
-
-    //
-    AGREGAR_USUARIO(state, usuario) {
-      state.usuarios.push(usuario); // Agrega el nuevo usuario al array
-    }
-  //
+    setUsuario(state, usuario) {
+      state.usuarios = usuario;
+    },
+    setRol(state, rol) {
+      state.rol = rol;
+    },
+    setToken(state, token) {
+      state.token = token;
+    },
   },
   actions: {
+    login(context, data) {
+        context.commit('setToken', data.token);
+        context.commit('setUsuario', data.usuario);
+        context.commit('setRol', data.rol);
 
+        // Guarda todo el objeto `data` en local storage
+        localStorage.setItem('userData', JSON.stringify(data));
+    },
+    logout(context) {
+        context.commit('setToken', null);
+        context.commit('setUsuario', null);
+        context.commit('setRol', null);
 
-    //
-    agregarUsuario({ commit }, usuario) {
-      return new Promise((resolve,) => {
-        // Simular una llamada a una API
-        setTimeout(() => {
-          // Aquí podrías hacer una lda a una API real
-          // Si todo va bien, se hace el comlamamit
-          commit('AGREGAR_USUARIO', usuario);
-          resolve();
-        }, 1000); // Simulación de un retraso de 1 segundo
-      });
+        localStorage.removeItem('userData');
     }
-  }
-  //
+},
 
+  modules: {
+
+  }
 
 });

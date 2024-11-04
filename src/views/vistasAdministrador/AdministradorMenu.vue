@@ -21,7 +21,7 @@
 
       <template v-slot:append>
         <div class="pa-2">
-          <v-btn color="yellow" block>
+          <v-btn color="yellow" @click="logout" block>
             Logout
           </v-btn>
         </div>
@@ -39,6 +39,13 @@
 
 <script>
 export default {
-  name: 'AdministradorMenu'
+  name: 'AdministradorMenu',
+  methods: {
+    logout() {
+      this.$store.dispatch('logout');
+      this.$router.push('/');
+    },
+  }
+
 }
 </script>

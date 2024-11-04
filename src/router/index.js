@@ -9,8 +9,16 @@ import CatalogosView from '@/views/vistasUsuario/CatalogosView.vue';
 import AdministradoresView from '@/views/VistasSuperAdministrador/AdministradoresView.vue';
 import RestaurantesView from '@/views/VistasSuperAdministrador/RestaurantesView.vue';
 import ReservasUserView from '@/views/vistasUsuario/ReservasUserView.vue';
+import LoginComponent from '@/components/LoginComponent.vue';
 
 const routes = [
+
+  {
+    path: '/login',  // Corrección aquí
+    name: 'login',
+    component: LoginComponent
+  },
+  
   {
     /* Esta ruta nos dirige al home de Super Administrador */
     path: '/superadmin',
